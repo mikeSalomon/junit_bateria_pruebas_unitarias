@@ -1,0 +1,53 @@
+package org.aleal.pruebas.junit.calculadora;
+
+import org.junit.jupiter.api.*;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class CalculadoraTest {
+
+    //Creamos métodos de ciclo de vida de las pruebas unitarias
+    //BeforeAll, AfterAll, BeforeEach, AfterEach
+
+    @BeforeAll
+    public static void beforeAll(){
+        //Ej:iniciar conexión bbdd
+        System.out.println("Se ejecuta antes de todas las pruebas unitarias");
+    }
+
+    @AfterAll
+    public static void afterAll(){
+        //Ej: para cerrar la conexión a bbdd
+        System.out.println("Se ejecuta después de todas las pruebas unitarias");
+    }
+
+    @BeforeEach
+    public void beforeEach(){
+        System.out.println("Se ejecuta antes de cada prueba unitaria");
+    }
+
+    @AfterEach
+    public void afterEach(){
+        System.out.println("Se ejecuta después de cada prueba unitaria");
+    }
+
+    @Test
+    @DisplayName("Prueba unitaria para revisar la suma de la calculadora")
+    public void sumarTest(){
+        Calculadora calc = new Calculadora();
+
+        assertEquals(6, calc.sumar(3, 3));
+        assertNotEquals(7, calc.sumar(3, 3));
+    }
+
+    @Test
+    @DisplayName("Prueba unitaria para revisar la división de la calculadora")
+    //@Disabled("Deshabilitada prueba unitaria de División temporalmente")
+    public void dividirTest(){
+        Calculadora calc = new Calculadora();
+
+        assertTrue(calc.dividir(10, 2) == 5);
+        assertFalse(calc.dividir(40, 2) == 3);
+    }
+
+}
