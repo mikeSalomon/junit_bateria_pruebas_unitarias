@@ -50,4 +50,15 @@ class CalculadoraTest {
         assertFalse(calc.dividir(40, 2) == 3);
     }
 
+    @Test
+    public void arregloTest(){
+
+        String [] arre1 = {"a", "b"};
+        String [] arre2 = {"a", "b"};
+        String [] arre3 = {"a", "c", "c"};
+
+        assertArrayEquals(arre1, arre2);
+        //assertArrayEquals(arre1, arre3);
+    }
+
 }
