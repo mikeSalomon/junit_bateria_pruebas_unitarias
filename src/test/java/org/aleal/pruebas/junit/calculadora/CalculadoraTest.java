@@ -61,4 +61,14 @@ class CalculadoraTest {
         //assertArrayEquals(arre1, arre3);
     }
 
+    @Test
+    public void multiplicarTest(){
+        Calculadora calc = new Calculadora();
+
+        //compara ambos parámetros. Si ambos son 25 pasa el test. Son iguales
+        assertSame(25, calc.multiplicar(5, 5));
+        //El primer parámetro es 25, el segundo es 15. No son iguales, así que pasa el test
+        assertNotSame(25, calc.multiplicar(3, 5));
+    }
+
 }
