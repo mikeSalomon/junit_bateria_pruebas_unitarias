@@ -80,6 +80,10 @@ class CalculadoraTest {
         Exception exception = assertThrows(Exception.class, () -> {
             calc.dividir(10, 0);
         });
+
+        assertDoesNotThrow(() -> {
+            calc.dividir(10, 2);
+        });
     }
 
 }
