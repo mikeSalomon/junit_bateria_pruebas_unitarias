@@ -43,7 +43,7 @@ class CalculadoraTest {
     @Test
     @DisplayName("Prueba unitaria para revisar la división de la calculadora")
     //@Disabled("Deshabilitada prueba unitaria de División temporalmente")
-    public void dividirTest(){
+    public void dividirTest() throws Exception{
         Calculadora calc = new Calculadora();
 
         assertTrue(calc.dividir(10, 2) == 5);
@@ -69,6 +69,17 @@ class CalculadoraTest {
         assertSame(25, calc.multiplicar(5, 5));
         //El primer parámetro es 25, el segundo es 15. No son iguales, así que pasa el test
         assertNotSame(25, calc.multiplicar(3, 5));
+    }
+
+    // ---- Manejo de errores ----
+    @Test
+    @DisplayName("Test para probar las excepciones")
+    public void dividirExceptionTest(){
+
+        Calculadora calc = new Calculadora();
+        Exception exception = assertThrows(Exception.class, () -> {
+            calc.dividir(10, 0);
+        });
     }
 
 }
