@@ -36,8 +36,13 @@ class CalculadoraTest {
     public void sumarTest(){
         Calculadora calc = new Calculadora();
 
-        assertEquals(6, calc.sumar(3, 3));
-        assertNotEquals(7, calc.sumar(3, 3));
+        //Debido al fallo de una prueba unitaria, no nos informará
+        //exactamente del fallo, por eso hacemos assertAll porque
+        //además de ejecutar todos las pruebas fallen o no, nos informa:
+        assertAll(
+                () -> { assertEquals(7, calc.sumar(3, 3)); },
+                () -> { assertNotEquals(6, calc.sumar(3, 3)); }
+        );
     }
 
     @Test
